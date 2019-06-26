@@ -25,5 +25,3 @@ def binaryInsertionSort(arr):
         j = binarySearch(arr, val, 0, i-1)
         arr = arr[:j] + [val] + arr[j:i] + arr[i+1:]
     return arr
-
-print(binaryInsertionSort([5,2,4,6,1,3]))

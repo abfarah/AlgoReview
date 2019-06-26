@@ -1,4 +1,3 @@
-import math
 def merge(l, r, arr):
     nl = len(l)
     nr = len(r)

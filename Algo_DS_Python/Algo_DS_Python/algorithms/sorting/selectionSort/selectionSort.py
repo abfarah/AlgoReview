@@ -7,5 +7,3 @@ def selectionSort(arr):
                 min_index = j
         arr[i], arr[min_index] = arr[min_index], arr[i]
     return arr
-
-print(selectionSort([5,2,4,6,1,3]))

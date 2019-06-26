@@ -31,7 +31,3 @@ def mergeSort(a):
     leftArr = mergeSort(leftArr)
     rightArr = mergeSort(rightArr)
     return merge(leftArr, rightArr, a)
-
-
-
-print(mergeSort([5,2,4,6,1,3]))

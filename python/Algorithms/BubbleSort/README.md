@@ -1,4 +1,4 @@
-# Bubble Sort O(n^2^)
+# Bubble Sort O(n<sup>2</sup>)
 #### Bubble sort is a very simple sorting algorithm that repeatedly swaps adjacent elements if they are in wrong order.
 ### Example:
 ###### First Pass: [**5,6**,2,1,7,3,8] => [5,**6,2**,1,7,3,8] => [5,2,**6,1**,7,3,8] => [5,2,1,**6,7**,3,8] => [5,2,1,6,**7,3**,8] => [5,2,1,6,3,**7,8**] => [5,2,1,6,3,7,8]

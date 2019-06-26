@@ -20,7 +20,7 @@ def binarySearch(arr, x, l, r):
         return binarySearch(arr, x, l+1, r)
 
 def binaryInsertionSort(arr):
-    for i in range(len(arr)):
+    for i in xrange(1, len(arr)):
         val = arr[i]
         j = binarySearch(arr, val, 0, i-1)
         arr = arr[:j] + [val] + arr[j:i] + arr[i+1:]

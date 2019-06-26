@@ -4,5 +4,3 @@ def bubbleSort(arr):
             if(arr[j] > arr[j+1]):
                 arr[j], arr[j+1] =  arr[j+1], arr[j]
     return arr
-
-print(bubbleSort([5,3,1,6,2]))

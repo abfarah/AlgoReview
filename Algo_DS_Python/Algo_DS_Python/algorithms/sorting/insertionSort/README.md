@@ -11,5 +11,3 @@
 ###### [1,2,5,6,**7**,3,8]
 ###### [1,2,5,6,7,**3**,8] => [1,2,5,6,**3**,7,8] => [1,2,5,**3**,6,7,8] => [1,2,**3**,5,6,7,8]
 ###### [1,2,3,5,6,7,**8**]
-### Binary Insertion Sort: O(log(n)) comparisons and O(n<sup>2</sup>) swaps
-#### This improves upon the basic insertion sort algorithm by using binary search when findng where item should be placed in list. This builds on the fact that when we start swapping an item with previous items, the list prior to that item is sorted. Using Binary Search we can use a divide and conquer approach when doing comparisions to cut down our complexity to O(log(n))

@@ -3,6 +3,8 @@ from insertionSort import insertionSort
 from binaryInsertionSort import binaryInsertionSort
 from mergeSort import mergeSort
 from selectionSort import selectionSort
+from quickSort import quickSort
+from quickSort.quickSort import randomized_quickSort
 
 import unittest
 
@@ -23,6 +25,12 @@ class test(unittest.TestCase):
 
     def test_selectionSort(self):
         self.assertEqual(selectionSort.selectionSort(test.arr),test.sortedArr)
+
+    def test_quickSort(self):
+        self.assertEqual(quickSort.quickSort(test.arr, 0, len(test.arr) - 1),test.sortedArr)
+
+    def test_randomized_quickSort(self):
+        self.assertEqual(quickSort.randomized_quickSort(test.arr, 0, len(test.arr) - 1),test.sortedArr)
 
 if __name__ == '__main__': 
     unittest.main()

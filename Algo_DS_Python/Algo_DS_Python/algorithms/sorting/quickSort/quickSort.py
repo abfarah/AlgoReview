@@ -15,4 +15,3 @@ def quickSort(arr, l, r):
         quickSort(arr, q+1, r)
         return arr
 
-print(quickSort([5,2,4,6,3,1],0,5))

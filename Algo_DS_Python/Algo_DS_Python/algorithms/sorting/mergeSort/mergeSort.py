@@ -19,8 +19,6 @@ def merge(l, r, arr):
         j+=1
         k+=1
 
-    return arr
-
 def mergeSort(a):
     n = len(a)
     if n < 2:
@@ -30,4 +28,5 @@ def mergeSort(a):
     rightArr = a[mid:]
     leftArr = mergeSort(leftArr)
     rightArr = mergeSort(rightArr)
-    return merge(leftArr, rightArr, a)
+    merge(leftArr, rightArr, a)
+    return a

@@ -5,6 +5,8 @@ from mergeSort import mergeSort
 from selectionSort import selectionSort
 from quickSort import quickSort
 from quickSort.quickSort import randomized_quickSort
+from countingSort import countingSort
+from countingSort.countingSort import shiftedCountingSort
 
 import unittest
 
@@ -31,6 +33,12 @@ class test(unittest.TestCase):
 
     def test_randomized_quickSort(self):
         self.assertEqual(quickSort.randomized_quickSort(test.arr, 0, len(test.arr) - 1),test.sortedArr)
+
+    def test_countingSort(self):
+        self.assertEqual(countingSort.countingSort(test.arr, 21),test.sortedArr)
+
+    def test_shiftedCountingSort(self):
+        self.assertEqual(countingSort.shiftedCountingSort(test.arr, 20),test.sortedArr)
 
 if __name__ == '__main__': 
     unittest.main()

@@ -7,6 +7,7 @@ from quickSort import quickSort
 from quickSort.quickSort import randomized_quickSort
 from countingSort import countingSort
 from countingSort.countingSort import shiftedCountingSort
+from radixSort import radixSort
 
 import unittest
 
@@ -39,6 +40,9 @@ class test(unittest.TestCase):
 
     def test_shiftedCountingSort(self):
         self.assertEqual(countingSort.shiftedCountingSort(test.arr, 20),test.sortedArr)
+
+    def test_radixSort(self):
+        self.assertEqual(radixSort.radixSort(test.arr, 20),test.sortedArr)
 
 if __name__ == '__main__': 
     unittest.main()

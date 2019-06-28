@@ -1,33 +1,39 @@
-def countingSort(arr, r):
-    count = [0 for i in range(r+1)]
-    result = [ 0 for i in range(len(arr))]
+def countingRadixSort(A, k, d):
 
-    for i in arr:
-        count[i] += 1
+    c = [None] * (k)
 
-    for i in range(1, len(count)):
-        count[i] = count[i] + count[i-1]
+    for i in range(0, k):
+        #print(i)
+        c[i] = 0
 
-    # Shifiting all counts to the right in count array
-    for i in range(len(count) -1, -1, -1):
-        if i <= 0:
-            count[i] = 0
-        else:
-            count[i] = count[i-1]
+    for j in range(0, len(A)):
+        c[ int( A[j][-d] ) ] = c[int( A[j][-d] )] + 1
 
-    for i in arr:
-        result[count[i]] = i
-        count[i] +=1
+    for i in range(1, k):
+        c[i] = c[i] + c[i-1]
 
-    return result
+    B = [None] * (len(A))
 
-def radixSort(arr):
-    max1 = max(arr)
-    exp = 1
-    while max1/exp > 0:
-        countingSort(arr,exp)
-        exp *= 10
-    return arr
+    for j in range(len(A) - 1, -1, -1):
+        #print(j)
+        B[c[int(A[j][-d])] - 1] = A[j]
+        c[int( A[j][-d]) ] = c[int( A[j][-d])] - 1
 
-print([5,7,3,45,2,23,56,890,123,45,76,86,12,3,4,5,64,6,14,45,36,337])
-print(radixSort([5,7,3,45,2,23,56,890,123,45,76,86,12,3,4,5,64,6,14,45,36,337]))
+    return B
+
+
+def radixSort(A, d):
+
+    B = []
+    for i in A:
+        B.append(str(i).zfill(d))
+
+    # Now sort based on digits
+    for i in range(1, d + 1):
+        B = countingRadixSort(B, 10, i)
+
+    for i in range(0, len(B)):
+        A[i] = int(B[i])
+    
+    return A
+

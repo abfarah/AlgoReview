@@ -12,7 +12,8 @@
 ### max_heapify: O(n lg(n))
 ### insert: O(): O(lg(n))
 ### heapsort: O(n lg(n))
-# Priority Queue: A data structure implementing a set S of elements, each associated with a key, supporting the following operations:
+# Priority Queue
+### Priority Queue: A data structure implementing a set S of elements, each associated with a key, supporting the following operations:
 ### Maximum(S): O(1)
 ### extract_max(S): O(lg(n))
 ### increase_key(S, x, k): O(lg(n))

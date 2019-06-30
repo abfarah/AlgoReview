@@ -89,3 +89,18 @@ class DoublyLinkedlist:
         self.tail = temp
         self.size -= 1
         self.printList()
+
+    def search(self, x):
+        if self.size < 1:
+            return None
+        if self.size == 1 or self.head.data == x:
+            return self.head
+        temp = self.head
+        count = 1
+        while temp.next != None and count <= self.size:
+            if temp.data == x:
+                return temp
+            temp = temp.next
+            count += 1
+
+

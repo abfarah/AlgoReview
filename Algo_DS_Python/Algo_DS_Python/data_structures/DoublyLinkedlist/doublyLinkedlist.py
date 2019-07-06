@@ -39,6 +39,34 @@ class DoublyLinkedlist:
             temp = temp.next
         print("")
 
+    def printRecursive(self):
+        print("List is: ", end="")
+        if self.head == None:
+            print("empty")
+            return None
+        self.printWRecursive(self.head)
+        print("")
+
+    def printWRecursive(self, n):
+        if n == None:
+            return None
+        print(n.data, end=" ")
+        self.printWRecursive(n.next)
+
+    def printReverseRecursive(self):
+        print("List is: ", end="")
+        if self.head == None:
+            print("empty")
+            return None
+        self.printWReverseRecursive(self.head)
+        print("")
+
+    def printWReverseRecursive(self, n):
+        if n == None:
+            return None
+        self.printWReverseRecursive(n.next)
+        print(n.data, end=" ")
+
     def insert(self, x, i):
         n = Node(x)
         temp = self.head
@@ -55,6 +83,18 @@ class DoublyLinkedlist:
             if n.next == None:
                 self.tail = n
             self.size += 1
+        self.printList()
+
+    def push(self, x):
+        if self.head == None:
+            self.insertHead(x)
+            return None
+        n = Node(x)
+        temp = self.tail
+        self.tail.next = n
+        n.prev = self.tail
+        self.tail = n
+        self.size +=1
         self.printList()
 
     def delete(self, i):
@@ -103,4 +143,32 @@ class DoublyLinkedlist:
             temp = temp.next
             count += 1
 
+    def reverseIterative(self):
+        if self.head == None:
+            print("no nodes in list")
+            return None
+        current = self.head
+        prev = None
+        while current != None:
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        self.head = prev
+        self.printList()
 
+    def reverseRecursive(self):
+        if self.head == None:
+            print("no nodes in list")
+            return None
+        self.reverseWRecursive(self.head)
+        self.printList()
+
+    def reverseWRecursive(self, n):
+        if n.next == None:
+            self.head = n
+            return None
+        self.reverseWRecursive(n.next)
+        temp = n.next
+        temp.next = n
+        n.next = None

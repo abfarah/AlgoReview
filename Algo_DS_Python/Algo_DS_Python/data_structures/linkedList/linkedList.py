@@ -78,18 +78,14 @@ class LinkedList:
         self.printList()
 
     def push(self, x):
-        n = Node(x)
-        temp = self.head
         if self.head == None:
             self.insertHead(x)
-        else:
-            count = 1
-            while count <= self.size and temp.next != None:
-                temp = temp.next
-                count += 1
-            temp.next = n
-            self.tail = n
-            self.size += 1
+            return None
+        n = Node(x)
+        temp = self.tail
+        self.tail.next = n
+        self.tail = n
+        self.size +=1
         self.printList()
 
     def delete(self, i):
@@ -111,9 +107,6 @@ class LinkedList:
         temp.next = temp2.next
         self.size -= 1
         self.printList()
-
-    def pop(self):
-        self.deleteTail()
 
     def deleteTail(self):
         if self.head == None or self.tail == None:

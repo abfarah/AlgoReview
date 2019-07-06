@@ -1,3 +1,6 @@
+#Only for use in Python 2.6.0a2 and later
+from __future__ import print_function
+
 class Node:
     def __init__(self, x):
         self.data = x

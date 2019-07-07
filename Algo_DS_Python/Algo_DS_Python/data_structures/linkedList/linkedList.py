@@ -63,7 +63,7 @@ class LinkedList:
         self.printWReverseRecursive(n.next)
         print(n.data, end=" ")
 
-    def insert(self, x, i):
+    def insertAt(self, x, i):
         n = Node(x)
         temp = self.head
         if temp == None or i <=1:
@@ -80,7 +80,7 @@ class LinkedList:
             self.size += 1
         self.printList()
 
-    def push(self, x):
+    def insert(self, x):
         if self.head == None:
             self.insertHead(x)
             return None

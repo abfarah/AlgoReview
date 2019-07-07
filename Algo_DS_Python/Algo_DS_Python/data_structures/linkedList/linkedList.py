@@ -80,7 +80,7 @@ class LinkedList:
             self.size += 1
         self.printList()
 
-    def insert(self, x):
+    def push(self, x):
         if self.head == None:
             self.insertHead(x)
             return None

@@ -5,7 +5,6 @@ sys.path.append( '.' )
 sys.path.append( '../linkedList' )
 
 from linkedList import LinkedList
-from linkedList import Node
 
 class ArrayStack:
     def __init__(self, data=None):
@@ -53,7 +52,29 @@ class ArrayStack:
             newArr[i] = self.stack[i]
         self.stack = newArr
 
+class LinkedListStack:
+    def __init__(self, data=None):
+        self.stack = LinkedList(data)
+        self.size = self.stack.size
 
+    def isEmpty(self):
+        if self.size <= 0:
+            return True
+        return False
 
+    def peek(self):
+        return self.stack.head
 
+    def push(self, x):
+        self.stack.insertHead(x)
+        self.size += 1
+
+    def pop(self):
+        x = self.stack.head
+        self.stack.deleteHead()
+        return x
+
+    def printStack(self):
+        print("Stack", end="")
+        self.stack.printList()
 

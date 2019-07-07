@@ -52,6 +52,7 @@ class ArrayStack:
             newArr[i] = self.stack[i]
         self.stack = newArr
 
+
 class LinkedListStack:
     def __init__(self, data=None):
         self.stack = LinkedList(data)

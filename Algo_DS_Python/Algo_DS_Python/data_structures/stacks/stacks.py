@@ -69,7 +69,7 @@ class LinkedListStack:
     def push(self, x):
         self.stack.insertHead(x)
         self.size += 1
-
+        
     def pop(self):
         x = self.stack.head
         self.stack.deleteHead()
@@ -78,4 +78,26 @@ class LinkedListStack:
     def printStack(self):
         print("Stack", end="")
         self.stack.printList()
+
+
+def checkBalancedParentheses(s):
+    stack = ArrayStack()
+    for i in s:
+        if i == "(" or i == "{" or i == "[":
+            stack.push(i)
+        elif i == ")" or i == "}" or i =="]":
+            if stack.isEmpty():
+                return False
+            x = stack.pop()
+            if i == ")" and x != "(":
+                return False
+            if i == "}" and x != "{":
+                return False
+            if i == "]" and x != "]":
+                return False
+
+    if stack.isEmpty():
+        return True
+    else:
+        return False
 

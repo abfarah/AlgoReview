@@ -69,7 +69,7 @@ class LinkedListStack:
     def push(self, x):
         self.stack.insertHead(x)
         self.size += 1
-
+        
     def pop(self):
         x = self.stack.head
         self.stack.deleteHead()

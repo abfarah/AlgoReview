@@ -79,13 +79,3 @@ class linkedListQueue:
         print("Queue", end="")
         self.queue.printList()
 
-
-l = linkedListQueue()
-l.enqueue(3)
-l.enqueue(5)
-l.enqueue(4)
-l.enqueue(7)
-l.enqueue(8)
-l.dequeue()
-l.dequeue()
-print(l.peak())

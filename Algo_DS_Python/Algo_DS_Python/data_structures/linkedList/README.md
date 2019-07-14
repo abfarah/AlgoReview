@@ -8,7 +8,7 @@
 ### PrintList: Displays the complete list in forward order. – O(n)
 ### printRecursive: Displays the complete list in forward order recursively. – O(n)
 ### printReverseRecursive: Displays the complete list in reverse order recursively. – O(n)
-### Insert(x, n): Inserts a node x at nth position. – O(n)
+### insertAt(x, n): Inserts a node x at nth position. – O(n)
 ### Insert(x): Inserts node x at end of list. O(1)
 ### Delete(i): Deletes an element using the given index. – O(n)
 ### DeleteTail: removes last element in array. – O(n)

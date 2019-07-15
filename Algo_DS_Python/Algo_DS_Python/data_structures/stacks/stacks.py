@@ -64,14 +64,14 @@ class LinkedListStack:
         return False
 
     def peek(self):
-        return self.stack.head
+        return self.stack.head.data
 
     def push(self, x):
         self.stack.insertHead(x)
         self.size += 1
         
     def pop(self):
-        x = self.stack.head
+        x = self.stack.head.data
         self.stack.deleteHead()
         return x
 
@@ -100,4 +100,64 @@ def checkBalancedParentheses(s):
         return True
     else:
         return False
+
+def evalPostfix(exp):
+    s = LinkedListStack()
+    for i in exp:
+        if i == "*" or i == "/" or i == "+" or i == "-" or i == "^":
+            op2 = s.pop()
+            op1 = s.pop()
+            res = 0;
+            if i == "*":
+                res = op1 * op2
+            elif i == "/":
+                res = op1 / op2
+            elif i == "+":
+                res = op1 + op2
+            elif i == "-":
+                res = op1 - op2
+            elif i == "^":
+                res = op1**op2
+            s.push(res)
+        else:
+            s.push(int(i))
+    return s.pop()
+
+def evalPrefix(exp):
+    s = LinkedListStack()
+    for x in range(len(exp), 0, -1):
+        i = exp[x - 1]
+        if i == "*" or i == "/" or i == "+" or i == "-" or i == "^":
+            op1 = s.pop()
+            op2 = s.pop()
+            res = 0;
+            if i == "*":
+                res = op1 * op2
+            elif i == "/":
+                res = op1 / op2
+            elif i == "+":
+                res = op1 + op2
+            elif i == "-":
+                res = op1 - op2
+            elif i == "^":
+                res = op1**op2
+            s.push(res)
+        else:
+            s.push(int(i))
+    return s.pop()
+
+def infixToPostfix:
+
+
+
+
+
+
+
+
+
+
+
+
+
 

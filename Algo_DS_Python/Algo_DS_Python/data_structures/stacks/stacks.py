@@ -29,7 +29,6 @@ class ArrayStack:
             self.resize()
         self.stack[self.top] = x
         self.size += 1
-        self.printStack()
 
     def pop(self):
         if self.isEmpty():
@@ -37,7 +36,6 @@ class ArrayStack:
             return None
         self.top -= 1
         self.size -= 1
-        self.printStack()
         return self.stack[self.top+1]
     
     def printStack(self):
@@ -104,7 +102,7 @@ def checkBalancedParentheses(s):
 def evalPostfix(exp):
     s = LinkedListStack()
     for i in exp:
-        if i == "*" or i == "/" or i == "+" or i == "-" or i == "^":
+        if i == "*" or i == "/" or i == "+" or i == "-":
             op2 = s.pop()
             op1 = s.pop()
             res = 0;
@@ -116,8 +114,6 @@ def evalPostfix(exp):
                 res = op1 + op2
             elif i == "-":
                 res = op1 - op2
-            elif i == "^":
-                res = op1**op2
             s.push(res)
         else:
             s.push(int(i))
@@ -127,7 +123,7 @@ def evalPrefix(exp):
     s = LinkedListStack()
     for x in range(len(exp), 0, -1):
         i = exp[x - 1]
-        if i == "*" or i == "/" or i == "+" or i == "-" or i == "^":
+        if i == "*" or i == "/" or i == "+" or i == "-":
             op1 = s.pop()
             op2 = s.pop()
             res = 0;
@@ -139,25 +135,44 @@ def evalPrefix(exp):
                 res = op1 + op2
             elif i == "-":
                 res = op1 - op2
-            elif i == "^":
-                res = op1**op2
             s.push(res)
         else:
             s.push(int(i))
     return s.pop()
 
-def infixToPostfix:
+def infixToPostfix(exp):
+    s = ArrayStack()
+    res = []
+    for i in exp:
+        print("i is: ", end="")
+        print(i)
+        if i == "*" or i == "/" or i == "+" or i == "-":
+            while s.isEmpty() == False and s.peek() != "(" and getPrecedence(s.peek(), i) == s.peek():
+                res.append(s.pop())
+                print("appended ", end=" ")
+                print(i)
+            s.push(i)
+            print("pushed: ", end="")
+            print(i)
+        elif i == "(":
+            s.push(i)
+        elif i == ")":
+            while s.isEmpty() == False and s.peek() != "(":
+                res.append(s.pop())
+            s.pop()
+        else:
+            res.append(i)
+    while s.isEmpty() == False:
+        res.append(s.pop())
+        print("Whileloop after case")
+    arr = "".join(res)
+    return arr       
 
-
-
-
-
-
-
-
-
-
-
-
-
+def getPrecedence(x, y):
+    if x == y:
+        return x
+    elif x == "*" or x == "/" and y == "+" or y == "-":
+        return x
+    else:
+        return y
 

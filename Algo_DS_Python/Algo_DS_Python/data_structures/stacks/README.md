@@ -7,7 +7,7 @@
 ### push: Adds element to top of stack. – O(1) or O(n) if array is full.
 ### printStack: Prints all the elements in the stack. – O(n)
 ### Resize: Doubles the size of the stack. – O(n)
-## LinkedListStack Operations:
+## linkedListStack Operations:
 ### isEmpty: Tells you if stack is empty. – O(1)
 ### peek: Returns the element at the top of the stack. – O(1)
 ### pop: Removes and returns the element at top of stack. – O(1)

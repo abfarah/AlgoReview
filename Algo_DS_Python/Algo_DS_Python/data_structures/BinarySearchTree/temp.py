@@ -21,16 +21,16 @@ class BST:
             self.tree = Node(x)
 
     def insertWRecursive(self, t, x):
-        if x <= t.val:
-            if(t.left == None):
-                t.left = Node(x)
-            else:
-                self.insertWRecursive(t.left, x)
-        else:
-            if (t.right == None):
+        if t.val < x:
+            if t.right == None:
                 t.right = Node(x)
             else:
                 self.insertWRecursive(t.right, x)
+        else:
+            if t.left == None:
+                t.left = Node(x)
+            else:
+                self.insertWRecursive(t.left, x)
 
     def find(self, x):
         temp = self.tree
@@ -39,18 +39,19 @@ class BST:
                 return temp
             else:
                 temp = temp.left if temp.val > x else temp.right
-        print("No value " + str(x) + " in binary search tree")
+        return None
 
-    def printTree(self):
-        if self.tree == None:
+    def printTree(self, tree):
+        if tree == None:
             print("Tree is empty")
-            return None
         else:
-            self.printWRecursive(self.tree)
-
-    def printWRecursive(self, tree):
-        if tree != None:
-            self.printWRecursive(tree.left)
+            self.printTree(tree.left)
             print(tree.val)
-            self.printWRecursive(tree.right)
+            self.printTree(tree.right)
+b = BST(6)
+b.insert(7)
+b.printTree(b)
+b.insert(9)
+b.printTree(b)
+
 

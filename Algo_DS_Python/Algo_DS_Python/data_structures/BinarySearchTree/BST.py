@@ -54,3 +54,46 @@ class BST:
             print(tree.val)
             self.printWRecursive(tree.right)
 
+    def findMin(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.findMinWRecursion(self.tree)
+
+
+    def findMinWRecursion(self, tree):
+        if tree.left == None:
+            return tree.val
+        else:
+            return self.findMinWRecursion(tree.left)
+
+    def findMax(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.findMaxWRecursion(self.tree)
+
+    def findMaxWRecursion(self, tree):
+        if tree.right == None:
+            return tree.val
+        else:
+            return self.findMaxWRecursion(tree.right)
+
+    def height(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.findHeight(self.tree)
+
+    def findHeight(self, tree):
+        if tree == None:
+            return 0
+        leftHeight = self.findHeight(tree.left)
+        rightHeight = self.findHeight(tree.right)
+
+        if leftHeight <= rightHeight:
+            return rightHeight +1
+        else:
+            return leftHeight +1
+
+

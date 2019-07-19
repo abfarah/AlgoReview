@@ -96,4 +96,3 @@ class BST:
         else:
             return leftHeight +1
 
-

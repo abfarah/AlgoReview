@@ -48,6 +48,7 @@ class BST:
             else:
                 temp = temp.left if temp.val > x else temp.right
         print("No value " + str(x) + " in binary search tree")
+        return None
 
     def printTree(self):
         return self.inorder()
@@ -58,10 +59,9 @@ class BST:
         else:
             return self.findMinWRecursion(self.tree)
 
-
     def findMinWRecursion(self, tree):
         if tree.left == None:
-            return tree.val
+            return tree
         else:
             return self.findMinWRecursion(tree.left)
 
@@ -73,7 +73,7 @@ class BST:
 
     def findMaxWRecursion(self, tree):
         if tree.right == None:
-            return tree.val
+            return tree
         else:
             return self.findMaxWRecursion(tree.right)
 
@@ -112,12 +112,51 @@ class BST:
         else:
             return False
 
-# TODO: Implement delete method
     def delete(self, x):
         if self.tree == None:
             print("Tree is empty")
         else:
-            
+            self.deleteUtil(self.tree, x)
+
+    def deleteUtil(self, tree, x):
+        if tree == None:
+            return tree
+        elif x < tree.val:
+            tree.left = self.deleteUtil(tree.left, x)
+        elif x > tree.val:
+            tree.right = self.deleteUtil(tree.right, x)
+        else:
+            if tree.right == None and tree.left == None:
+                return None
+            elif tree.left == None and tree.right != None:
+                return tree.right
+            elif tree.right == None and tree.left != None:
+                return tree.left
+            else:
+                temp = self.findMinWRecursion(tree.right)
+                tree.val = temp.val
+                tree.right = self.deleteUtil(tree.right, temp.val)
+        return tree
+
+    def getSuccessor(self, x):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            current = self.find(x)
+            if current == None:
+                return None
+            if current.right != None:
+                return self.findMinWRecursion(current.right)
+            else:
+                successor = None
+                ancestor = self.tree
+                while ancestor != current:
+                    if current.val < ancestor.val:
+                        successor = ancestor
+                        ancestor = ancestor.left
+                    else:
+                        ancestor = ancestor.right
+                return successor
 
     def preorder(self):
         if self.tree == None:

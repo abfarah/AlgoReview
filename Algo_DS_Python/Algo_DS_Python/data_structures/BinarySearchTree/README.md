@@ -2,7 +2,7 @@
 #####  A binary search tree is a tree data structure that is organized in a binary Tree. A binary tree contains linked nodes that all have three properties, a parent, and two child nodes; a left and right child. The keys in a binary trees are always stored in such a way as to satisfy the binary-search-tree property listed below
 #####  Let x be a node in a binary tree. If y is a node in the left subtree of x, then y.key <= x.key. If y is a node in the right subtree of x then y.key >= x.key.
 > ![BST](BST.png)
-## Operations:
+## Operations: h = Height of tree
 #### isEmpty: Returns true if BST is empty. – O(1)
 #### insert(x): Inserts Node(x) into the BST. – O(h)
 #### find(x): returns Node containing value x from BST. – O(h)

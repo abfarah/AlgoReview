@@ -78,7 +78,6 @@ class LinkedList:
             if n.next == None:
                 self.tail = n
             self.size += 1
-        self.printList()
 
     def insert(self, x):
         if self.head == None:
@@ -89,7 +88,6 @@ class LinkedList:
         self.tail.next = n
         self.tail = n
         self.size +=1
-        self.printList()
 
     def delete(self, i):
         if i > self.size or self.head == None:
@@ -109,7 +107,6 @@ class LinkedList:
         temp2 = temp.next
         temp.next = temp2.next
         self.size -= 1
-        self.printList()
 
     def deleteTail(self):
         if self.head == None or self.tail == None:
@@ -124,7 +121,6 @@ class LinkedList:
         temp.next = None
         self.tail = temp
         self.size -= 1
-        self.printList()
 
     def search(self, x):
         if self.head == None:
@@ -152,14 +148,12 @@ class LinkedList:
             prev = current
             current = temp
         self.head = prev
-        self.printList()
 
     def reverseRecursive(self):
         if self.head == None:
             print("no nodes in list")
             return None
         self.reverseWRecursive(self.head)
-        self.printList()
 
     def reverseWRecursive(self, n):
         if n.next == None:

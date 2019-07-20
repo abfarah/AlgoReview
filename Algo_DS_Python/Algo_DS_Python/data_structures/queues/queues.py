@@ -70,6 +70,7 @@ class linkedListQueue:
     def dequeue(self):
         x = self.queue.head
         self.queue.deleteHead()
+        self.size -= 1
         return x
 
     def peak(self):

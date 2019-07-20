@@ -1,3 +1,11 @@
+from __future__ import print_function
+import sys
+sys.path.append( '.' )
+sys.path.append( '../queues' )
+
+from queues import linkedListQueue
+
+
 class Node:
     def __init__(self, data=None):
         self.val = data
@@ -42,15 +50,126 @@ class BST:
         print("No value " + str(x) + " in binary search tree")
 
     def printTree(self):
+        return self.inorder()
+
+    def findMin(self):
         if self.tree == None:
             print("Tree is empty")
-            return None
         else:
-            self.printWRecursive(self.tree)
+            return self.findMinWRecursion(self.tree)
 
-    def printWRecursive(self, tree):
+
+    def findMinWRecursion(self, tree):
+        if tree.left == None:
+            return tree.val
+        else:
+            return self.findMinWRecursion(tree.left)
+
+    def findMax(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.findMaxWRecursion(self.tree)
+
+    def findMaxWRecursion(self, tree):
+        if tree.right == None:
+            return tree.val
+        else:
+            return self.findMaxWRecursion(tree.right)
+
+    def height(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.findHeight(self.tree)
+
+    def findHeight(self, tree):
+        if tree == None:
+            return 0
+        leftHeight = self.findHeight(tree.left)
+        rightHeight = self.findHeight(tree.right)
+
+        if leftHeight > rightHeight:
+            return leftHeight +1
+        else:
+            return rightHeight +1
+
+    def isBinarySearchTree(self, tree=None):
+        INT_MAX = sys.maxsize
+        INT_MIN = -sys.maxsize-1
+        if tree == None:
+            tree = self.tree
+        if tree == None:
+            print("Tree is empty")
+        else:
+            return self.isBstUtil(tree, INT_MIN, INT_MAX)
+
+    def isBstUtil(self, tree, intMin, intMax):
+        if tree == None:
+            return True
+        if tree.val >= intMin and tree.val <= intMax and self.isBstUtil(tree.left, intMin, tree.val) and self.isBstUtil(tree.right, tree.val, intMax):
+            return True
+        else:
+            return False
+
+# TODO: Implement delete method
+    def delete(self, x):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            
+
+    def preorder(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.preorderWRecursion(self.tree)
+
+    def preorderWRecursion(self, tree):
         if tree != None:
-            self.printWRecursive(tree.left)
-            print(tree.val)
-            self.printWRecursive(tree.right)
+            print(tree.val, end=", ")
+            self.preorderWRecursion(tree.left)
+            self.preorderWRecursion(tree.right)
+
+
+    def postorder(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.postorderWRecursion(self.tree)
+
+    def postorderWRecursion(self, tree):
+        if tree != None:
+            self.postorderWRecursion(tree.left)
+            self.postorderWRecursion(tree.right)
+            print(tree.val, end=", ")
+
+
+    def inorder(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            return self.inorderWRecursion(self.tree)
+
+    def inorderWRecursion(self, tree):
+        if tree != None:
+            self.inorderWRecursion(tree.left)
+            print(tree.val, end=", ")
+            self.inorderWRecursion(tree.right)
+
+    def levelOrder(self):
+        if self.tree == None:
+            print("Tree is empty")
+        else:
+            queue = linkedListQueue()
+            queue.enqueue(self.tree)
+            print("BST in level order : ", end="")
+            while not queue.isEmpty():
+                temp = queue.dequeue()
+                print(temp.data.val, end=" ")
+                if temp.data.left != None:
+                    queue.enqueue(temp.data.left)
+                if temp.data.right != None:
+                    queue.enqueue(temp.data.right)
+        print("")
 

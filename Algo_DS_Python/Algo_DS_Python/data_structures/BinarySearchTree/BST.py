@@ -162,11 +162,13 @@ class BST:
         if self.tree == None:
             print("Tree is empty")
         else:
-            return self.preorderWRecursion(self.tree)
+            result =  self.preorderWRecursion(self.tree)
+            print("")
+            return result
 
     def preorderWRecursion(self, tree):
         if tree != None:
-            print(tree.val, end=", ")
+            print(tree.val, end=" ")
             self.preorderWRecursion(tree.left)
             self.preorderWRecursion(tree.right)
 
@@ -175,25 +177,30 @@ class BST:
         if self.tree == None:
             print("Tree is empty")
         else:
-            return self.postorderWRecursion(self.tree)
+            result =  self.postorderWRecursion(self.tree)
+            print("")
+            return result
+
 
     def postorderWRecursion(self, tree):
         if tree != None:
             self.postorderWRecursion(tree.left)
             self.postorderWRecursion(tree.right)
-            print(tree.val, end=", ")
+            print(tree.val, end=" ")
 
 
     def inorder(self):
         if self.tree == None:
             print("Tree is empty")
         else:
-            return self.inorderWRecursion(self.tree)
+            result = self.inorderWRecursion(self.tree)
+            print("")
+            return result
 
     def inorderWRecursion(self, tree):
         if tree != None:
             self.inorderWRecursion(tree.left)
-            print(tree.val, end=", ")
+            print(tree.val, end=" ")
             self.inorderWRecursion(tree.right)
 
     def levelOrder(self):

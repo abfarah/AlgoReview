@@ -58,4 +58,3 @@ class HashWChaining:
         for i in self.hashtable:
             print("Hash", end="")
             i.printList()
-

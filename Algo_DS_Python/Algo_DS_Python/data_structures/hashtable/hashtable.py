@@ -99,7 +99,6 @@ class hashWOpenAddressing:
             elif self.hashtable[h][0] == key:
                 self.hashtable[h] = "DeletedFile"
                 return self.hashtable
-            
     
     def printTable(self):
         for i in self.hashtable:

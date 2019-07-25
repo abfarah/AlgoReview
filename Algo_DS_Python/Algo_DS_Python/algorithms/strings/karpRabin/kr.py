@@ -16,5 +16,5 @@ def karpRabin(s, t):
     if count == 0:
         return "No matches found"
     else:
-        return str(count) + " matches found at indexes below" + str(matches)
+        return str(count) + " matches found at indexes " + str(matches)
 

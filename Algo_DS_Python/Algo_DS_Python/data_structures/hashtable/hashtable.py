@@ -73,39 +73,32 @@ class hashWOpenAddressing:
         return True
 
     def hashItem(self,x,i):
-        return (self.r *hash(x)) % len(self.hashtable)+i
+        return (self.r *hash(x) + i) % len(self.hashtable)
 
     def insert(self, key, value):
-        count = 0
-        isInserted = True
-        while count <= 
-            h = self.hashItem(key, count)
-            if self.hashtable[h] != None and self.hashtable[h] != "DeletedFile":
-                self.hashtable[h] == [key, value]
-                isInserted = False
-            else:
-                count+=1
+        for i in range(len(self.hashtable)):
+            h = self.hashItem(key, i)
+            if self.hashtable[h] == None or self.hashtable[h] == "DeletedFile":
+                self.hashtable[h] = [key, value]
+                return self.hashtable
+        print("Unable to insert for " + str(key))
 
-    def get(self, x):
-        count = 0
-        while isFound:
-            h = self.hash(x, count)
+    def get(self, key):
+        for i in range(len(self.hashtable)):
+            h = self.hashItem(key, i)
             if self.hashtable[h] == None:
                 return None
-            elif self.hashtable[h][0] == x:
+            elif self.hashtable[h][0] == key:
                 return self.hashtable[h][1]
-            count+=1
 
-    def delete(self, x):
-        count = 0
-        isFound = False
-        while isFound:
-            h = self.hashItem(key, count)
+    def delete(self, key):
+        for i in range(len(self.hashtable)):
+            h = self.hashItem(key, i)
             if self.hashtable[h] == None:
                 return None
-            elif self.hashtable[h][0] == x:
-                self.hashtable[h] == "DeletedFile"
-            count+=1
+            elif self.hashtable[h][0] == key:
+                self.hashtable[h] = "DeletedFile"
+                return self.hashtable
             
     
     def printTable(self):
@@ -113,22 +106,8 @@ class hashWOpenAddressing:
             if i == None:
                 print("None")
             elif i == "DeletedFile":
-                print("Deleted file****")
+                print("None")
             else:
                 print("Key: " + str(i[0]) + " Value: " + str(i[1]))
-
-
-
-l = hashWOpenAddressing()
-l.insert(8, "dfa")
-l.insert(4, "sfa")
-l.insert(3, "sda")
-l.insert(2, "sdf")
-l.insert(0, "sd")
-l.printTable()
-print(l.hashtable)
-
-
-
 
 

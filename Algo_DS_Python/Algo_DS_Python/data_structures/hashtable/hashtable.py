@@ -1,9 +1,11 @@
 from __future__ import print_function
 import sys
+import os
+dirpath = os.path.dirname(os.path.abspath(__file__))
 sys.path.append( '.' )
-sys.path.append( '../linkedList' )
+sys.path.append(dirpath +  '/../' )
 
-from linkedList import LinkedList
+from linkedList.linkedList import LinkedList
 from random import randint
 
 class HashWChaining:

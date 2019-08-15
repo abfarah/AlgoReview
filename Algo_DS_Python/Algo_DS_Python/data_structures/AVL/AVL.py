@@ -1,9 +1,11 @@
 from __future__ import print_function
 import sys
+import os
+dirpath = os.path.dirname(os.path.abspath(__file__))
 sys.path.append( '.' )
-sys.path.append( '../queues' )
+sys.path.append(dirpath + '/../' )
 
-from queues import linkedListQueue
+from queues.queues import linkedListQueue
 
 class AVLNode:
     def __init__(self, data=None):

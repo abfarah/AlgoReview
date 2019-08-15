@@ -1,28 +1,26 @@
 #Only for use in Python 2.6.0a2 and later
 from __future__ import print_function
-parent = {}
-def DFS_Visit(s, adj):
+import sys
+import os
+dirpath = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(".")
+sys.path.append(dirpath + "/../")
+
+from common import adj,V
+
+def DFS_Visit(s, adj, parent):
     for v in adj[s]:
         if v not in parent:
             parent[v] = s
-            DFS_Visit(v, adj)
+            DFS_Visit(v, adj, parent)
 
 def DFS(V, adj):
+    parent = {}
     for v in V:
         if v not in parent:
             parent[v] = None
-            DFS_Visit(v, adj)
+            DFS_Visit(v, adj, parent)
     return parent
-
-V = ['s', 'a', 'x', 'z', 'd', 'c', 'f', 'v']
-adj = {'s': set(['a', 'x']),
-         'a': set(['s', 'z']),
-         'x': set(['s', 'd', 'c']),
-         'z': set(['a']),
-         'd': set(['x', 'c', 'f']),
-         'c': set(['x', 'd', 'f', 'v']),
-         'f': set(['d', 'c', 'v']),
-         'v': set(['c', 'f'])}
 
 print(DFS(V, adj))
 

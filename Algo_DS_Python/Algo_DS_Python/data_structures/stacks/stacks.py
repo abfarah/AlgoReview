@@ -1,10 +1,12 @@
 #Only for use in Python 2.6.0a2 and later
 from __future__ import print_function
 import sys
+import os
+dirpath = os.path.dirname(os.path.abspath(__file__))
 sys.path.append( '.' )
-sys.path.append( '../linkedList' )
+sys.path.append( dirpath + '/../' )
 
-from linkedList import LinkedList
+from linkedList.linkedList import LinkedList
 
 class ArrayStack:
     def __init__(self, data=None):

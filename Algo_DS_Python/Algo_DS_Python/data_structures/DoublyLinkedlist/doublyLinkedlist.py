@@ -155,6 +155,7 @@ class DoublyLinkedlist:
         while current != None:
             temp = current.next
             current.next = prev
+            current.prev = prev
             prev = current
             current = temp
         self.head = prev

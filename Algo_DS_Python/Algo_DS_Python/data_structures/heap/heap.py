@@ -126,7 +126,7 @@ class minHeap:
 
         return h
 
-class priorityQueue(maxHeap):
+class maxPriorityQueue(maxHeap):
     def heap_extract_max(self, a):
         if(len(a) < 1):
             return "heap underflow"
@@ -145,3 +145,12 @@ class priorityQueue(maxHeap):
             i = self.parent(i)
         self.__heap = a
 
+class minPriorityQueue(minHeap):
+    def heap_extract_min(self, a):
+        if(len(a) < 1):
+            return "heap underflow"
+        min = a[0]
+        a[0] = a[len(a)-1]
+        a = self.build_min_heap(a[1:])
+        self.__heap = a
+        return min

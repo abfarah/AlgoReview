@@ -11,7 +11,7 @@ class Trie:
         self.root = Node()
 
     def letterPosition(self, l):
-        return ord(l) - 97
+        return ord(l.lower()) - ord('a')
 
     def insert(self, word):
         word = word.lower()
